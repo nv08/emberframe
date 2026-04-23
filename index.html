@@ -5,7 +5,7 @@
 <title>Emberframe Studios</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- CINEMATIC FONTS -->
+<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -16,16 +16,25 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* FLEX LAYOUT */
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background: #050505;
   color: #fff;
   font-family: 'Poppins', sans-serif;
-  overflow: hidden;
 }
 
 /* HERO */
 .hero {
-  height: 100vh;
+  flex: 1;
+  min-height: 100vh;
+  padding: 40px 20px;
   background: url('banner.jpg') center/cover no-repeat;
   position: relative;
   display: flex;
@@ -33,7 +42,7 @@ body {
   justify-content: center;
 }
 
-/* cinematic overlay */
+/* overlay */
 .hero::before {
   content: "";
   position: absolute;
@@ -43,7 +52,7 @@ body {
     linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.95));
 }
 
-/* glow animation */
+/* glow */
 .hero::after {
   content: "";
   position: absolute;
@@ -57,12 +66,13 @@ body {
   50% { opacity: 0.6; }
 }
 
-/* GLASS CONTAINER */
+/* CONTENT */
 .container {
   position: relative;
   z-index: 2;
   text-align: center;
   max-width: 900px;
+  width: 100%;
   padding: 40px;
 
   backdrop-filter: blur(14px);
@@ -79,14 +89,13 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* LOGO FIXED */
+/* LOGO */
 .logo-wrap {
   position: relative;
   display: inline-block;
   margin-bottom: 20px;
 }
 
-/* subtle glow behind logo */
 .logo-wrap::before {
   content: "";
   position: absolute;
@@ -98,7 +107,7 @@ body {
 
 .logo {
   width: 130px;
-  mix-blend-mode: screen; /* KEY FIX */
+  mix-blend-mode: screen;
   opacity: 0.95;
 }
 
@@ -106,7 +115,7 @@ body {
 h1 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 4rem;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   margin-bottom: 5px;
 
   background: linear-gradient(90deg, #fff, #ff7a18);
@@ -153,7 +162,7 @@ h1 {
   transform: translateY(-2px);
 }
 
-/* COMING SOON */
+/* COMING */
 .coming {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2rem;
@@ -162,7 +171,6 @@ h1 {
   position: relative;
 }
 
-/* animated underline */
 .coming::after {
   content: "";
   position: absolute;
@@ -180,20 +188,57 @@ h1 {
   100% { transform: scaleX(0); }
 }
 
-/* FOOTER */
+/* FOOTER (FLEX SAFE) */
 .footer {
-  position: absolute;
-  bottom: 15px;
-  width: 100%;
   text-align: center;
+  padding: 15px 10px;
   font-size: 0.75rem;
   color: #666;
 }
 
 /* MOBILE */
 @media(max-width: 768px) {
-  h1 { font-size: 2.5rem; }
-  .features { grid-template-columns: 1fr; }
+
+  .hero {
+    align-items: flex-start;
+    padding-top: 60px;
+  }
+
+  .container {
+    padding: 25px 18px;
+    border-radius: 15px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+
+  .tagline {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+  }
+
+  .description {
+    font-size: 0.85rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .feature {
+    font-size: 0.8rem;
+  }
+
+  .coming {
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+  }
+
+  .logo {
+    width: 90px;
+  }
 }
 
 </style>
@@ -206,7 +251,7 @@ h1 {
   <div class="container">
 
     <div class="logo-wrap">
-      <img src="logo.png" class="logo">
+      <img src="logo.png" class="logo" alt="Emberframe Studios Logo">
     </div>
 
     <h1>EMBERFRAME STUDIOS</h1>
@@ -232,11 +277,11 @@ h1 {
 
   </div>
 
-  <div class="footer">
-    © 2026 Emberframe Studios
-  </div>
-
 </section>
+
+<div class="footer">
+  © 2026 Emberframe Studios
+</div>
 
 </body>
 </html>
